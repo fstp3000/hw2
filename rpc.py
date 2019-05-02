@@ -45,6 +45,28 @@ class RpcServer():
     def add_node(self, address):
         add_node(address)
         return True
+#data format between p2p network
+    def send_Header(self):
+        return True
+
+    def getBlocks(self,request):
+        bcdb = BlockChainDB()
+        alldata = bcdb.find_all()
+	for index,block in enumerate(alldata[0]):
+            if block['hash']==request['hash_begin']:
+                
+	
+
+#node stat rpc
+    def getBlockCount(self):
+        return True
+
+    def getBlockHash(self):
+        return True
+
+    def getBlockHeader(self):
+        return True
+    
 
 class RpcClient():
 

@@ -1,4 +1,4 @@
-# coding:utf-8
+#coding:utf-8
 import json
 import os
 
@@ -132,3 +132,5 @@ class UnTransactionDB(TransactionDB):
         for item in self.find_all():
             hashes.append(item['hash'])
         return hashes
+
+
