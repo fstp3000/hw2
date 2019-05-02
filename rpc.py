@@ -49,7 +49,7 @@ class RpcServer():
     def send_Header(self):
         return True
 
-    def getBlocks(self,request):
+    def get_Blocks(self,request):
         bcdb = BlockChainDB()
         alldata = bcdb.find_all()
         result = []
@@ -64,7 +64,7 @@ class RpcServer():
                 if count < count_max:
                     result.append(block['hash'])
                 else:
-                    return False
+                    return bcdb.find_all()
         #return {"error":0, "result":result}
         return bcdb.find_all()
                 
@@ -83,7 +83,7 @@ class RpcServer():
 
 class RpcClient():
 
-    ALLOW_METHOD = ['getBlocks', 'get_transactions', 'get_blockchain', 'new_block', 'new_untransaction', 'blocked_transactions', 'ping', 'add_node']
+    ALLOW_METHOD = ['get_Blocks', 'get_transactions', 'get_blockchain', 'new_block', 'new_untransaction', 'blocked_transactions', 'ping', 'add_node']
 
     def __init__(self, node):
         self.node = node
