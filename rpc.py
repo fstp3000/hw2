@@ -52,8 +52,20 @@ class RpcServer():
     def getBlocks(self,request):
         bcdb = BlockChainDB()
         alldata = bcdb.find_all()
-	for index,block in enumerate(alldata[0]):
-            if block['hash']==request['hash_begin']:
+        result = []
+        flag = False
+        print('request:',request)
+        count_max = request['data']['hash_count']
+        count = 0
+        for index,block in enumerate(alldata[0]):
+            if block['hash']==request['data']['hash_begin']:
+                flag = True
+            if flag == True:
+                if count < count_max:
+                    result.append(block['hash'])
+                else:
+                    break
+        return {"error":0, "result":result}
                 
 	
 
@@ -70,7 +82,7 @@ class RpcServer():
 
 class RpcClient():
 
-    ALLOW_METHOD = ['get_transactions', 'get_blockchain', 'new_block', 'new_untransaction', 'blocked_transactions', 'ping', 'add_node']
+    ALLOW_METHOD = ['getBlocks', 'get_transactions', 'get_blockchain', 'new_block', 'new_untransaction', 'blocked_transactions', 'ping', 'add_node']
 
     def __init__(self, node):
         self.node = node
