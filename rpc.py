@@ -64,8 +64,9 @@ class RpcServer():
                 if count < count_max:
                     result.append(block['hash'])
                 else:
-                    break
-        return {"error":0, "result":result}
+                    return False
+        #return {"error":0, "result":result}
+        return bcdb.find_all()
                 
 	
 
