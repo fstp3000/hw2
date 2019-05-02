@@ -46,7 +46,7 @@ def add_node(address):
     ndb = NodeDB()
     all_nodes = ndb.find_all()
     if address.find('http') != 0:
-        address = 'http://' + address
+        address = 'http://127.0.0.1:' + address
     all_nodes.append(address)
     ndb.clear()
     ndb.write(rm_dup(all_nodes))
@@ -59,4 +59,4 @@ def rm_dup(nodes):
     return sorted(set(nodes)) 
     
 if __name__=='__main__':
-    start_node(3009)
+    start_node()

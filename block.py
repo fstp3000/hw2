@@ -6,17 +6,12 @@ from rpc import BroadCast
 
 class Block(Model):
 
-    def __init__(self, index, timestamp, tx, previous_hash):
-        self.index = index
-        self.timestamp = timestamp
-        self.tx = tx
-        self.previous_block = previous_hash
+    def __init__(self, previous_hash):
+        self.version = '00000001'
+        self.prev_block = previous_hash
+        self.merkle_root = '0000000000000000000000000000000000000000000000000000000000000000'
+        self.target = '0001000000000000000000000000000000000000000000000000000000000000'
 
-    def header_hash(self):
-        """
-        Refer to bitcoin block header hash
-        """          
-        return hashlib.sha256((str(self.index) + str(self.timestamp) + str(self.tx) + str(self.previous_block)).encode('utf-8')).hexdigest()
 
     def pow(self):
         """
@@ -35,12 +30,8 @@ class Block(Model):
         self.hash = self.ghash(nouce)
     
     def ghash(self, nouce):
-        """
-        Block hash generate.
-        """        
-        header_hash = self.header_hash()
-        token = ''.join((header_hash, str(nouce))).encode('utf-8')
-        return hashlib.sha256(token).hexdigest()
+        self.nouce = nouce
+        return hashlib.sha256(( str(self.version) + str(self.prev_block) + str(self.merkle_root) + str(self.target) + str(self.nouce).zfill(8)).encode('utf-8')).hexdigest()
 
     def valid(self, nouce):
         """
@@ -53,7 +44,7 @@ class Block(Model):
 
     @classmethod
     def from_dict(cls, bdict):
-        b = cls(bdict['index'], bdict['timestamp'], bdict['tx'], bdict['previous_block'])
+        b = cls(bdict['version'], bdict['prev_block'], bdict['merkle_root'], bdict['target'])
         b.hash = bdict['hash']
         b.nouce = bdict['nouce']
         return b
@@ -61,3 +52,6 @@ class Block(Model):
     @staticmethod
     def spread(block):
         BroadCast().new_block(block)
+if __name__=="__main__":
+    bc = Block('0000000008e647742775a230787d66fdf92c46a48c896bfbc85cdc8acc67e87d')
+    print(bc.ghash(bc.pow()))
