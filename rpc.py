@@ -74,19 +74,27 @@ class RpcServer():
         bcdb = BlockChainDB()
         alldata = bcdb.find_all()
         result = alldata[0]
-        print('request:',request)
+        #print('request:',request)
         return result
 
-    def getBlockHash(self):
-        return True
+    def get_BlockHash(self):
+        bcdb = BlockChainDB()
+        alldata = bcdb.find_all()
+        result = alldata[0]
+        #print('request:',request)
+        return result
 
-    def getBlockHeader(self):
+    def get_BlockHeader(self):
+        bcdb = BlockChainDB()
+        alldata = bcdb.find_all()
+        result = alldata[0]
+        #print('request:',request)
         return True
     
 
 class RpcClient():
 
-    ALLOW_METHOD = ['get_BlockCount', 'get_Blocks', 'get_transactions', 'get_blockchain', 'new_block', 'new_untransaction', 'blocked_transactions', 'ping', 'add_node']
+    ALLOW_METHOD = ['get_BlockHash', 'get_BlockHeader', 'get_BlockCount', 'get_Blocks', 'send_Header','get_transactions', 'get_blockchain', 'new_block', 'new_untransaction', 'blocked_transactions', 'ping', 'add_node']
 
     def __init__(self, node):
         self.node = node
