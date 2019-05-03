@@ -60,13 +60,15 @@ class RpcServer():
             return self.get_BlockHeader(request)
 
     def send_Header(self, request):
-        bcdb = BlockChainDB()
-        alldata = bcdb.find_all()
-        alldata = alldata[0]
-        block = alldata["version"]+alldata["prev_block"]+alldata["merkle_root"]+alldata["target"]+alldata["nonce"]
-        print(block)
-        dict1 = {"error":0}
-        return True
+        print('request:',request)
+        #cprint('RPC', block)
+        #transfer header to block format
+        #BlockChainDB().insert(block)
+        #UnTransactionDB().clear()
+        cprint('INFO',"Receive new block.")
+        response = {"error":0}
+        print('response:',response)
+        return response
 
     def get_Blocks(self, request):
         print('request:',request)
