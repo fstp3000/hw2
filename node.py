@@ -58,8 +58,6 @@ def check_node(address):
 def rm_dup(nodes):
     return sorted(set(nodes)) 
     
-#if __name__=='__main__':
-#    start_node()
 if __name__=='__main__':
     #start_node()
     dic = {"method":"getBlocks",
@@ -69,15 +67,7 @@ if __name__=='__main__':
              "hash_stop":"00000d08eafd831c138e4eb4c06ee5c3dc63aa40564c5a4322dcb824622754cf"
            }
           }
-    #print(dic["method"])
-    #print(dic['data']['hash_count'])
     response = rpc.BroadCast().get_blockchain()
-    print(response)
+    print(json.dumps(response, indent = 4, sort_keys=True))
     response = rpc.BroadCast().get_Blocks(dic)
-    print(response)
-    #print(len(all_node_blockchains[0]))
-    #for idx,block in enumerate(all_node_blockchains[0]):
-    #    print(idx,':',block)
-#if __name__=="__main__":
-#    arpc = RpcServer()
-#    print(arpc)
+    print(json.dumps(response, indent = 4, sort_keys=True))
