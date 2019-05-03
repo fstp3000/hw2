@@ -46,10 +46,24 @@ class RpcServer():
         add_node(address)
         return True
 #data format between p2p network
-    def send_Header(self):
+    
+    def router(self, request):
+        mode = request["request"] 
+        if mode == "send_Header":
+            send_Header(request)
+        elif mode == "get_Blocks":
+            get_Blocks(request)
+        elif mode == "get_BlockCount":
+            get_BlockCount(request)
+        elif mode == "get_BlockHash":
+            get_BlockHash(request)
+        else mode == "get_BlockHeader":
+            get_BlockHeader(request)
+
+    def send_Header(self, request):
         return True
 
-    def get_Blocks(self,request):
+    def get_Blocks(self, request):
         bcdb = BlockChainDB()
         alldata = bcdb.find_all()
         result = []
@@ -70,21 +84,21 @@ class RpcServer():
 	
 
 #node stat rpc
-    def get_BlockCount(self):
+    def get_BlockCount(self, request):
         bcdb = BlockChainDB()
         alldata = bcdb.find_all()
         result = alldata[0]
         #print('request:',request)
         return result
 
-    def get_BlockHash(self):
+    def get_BlockHash(self, request):
         bcdb = BlockChainDB()
         alldata = bcdb.find_all()
         result = alldata[0]
         #print('request:',request)
         return result
 
-    def get_BlockHeader(self):
+    def get_BlockHeader(self, request):
         bcdb = BlockChainDB()
         alldata = bcdb.find_all()
         result = alldata[0]
@@ -94,7 +108,7 @@ class RpcServer():
 
 class RpcClient():
 
-    ALLOW_METHOD = ['get_BlockHash', 'get_BlockHeader', 'get_BlockCount', 'get_Blocks', 'send_Header','get_transactions', 'get_blockchain', 'new_block', 'new_untransaction', 'blocked_transactions', 'ping', 'add_node']
+    ALLOW_METHOD = ['router', 'get_BlockHash', 'get_BlockHeader', 'get_BlockCount', 'get_Blocks', 'send_Header','get_transactions', 'get_blockchain', 'new_block', 'new_untransaction', 'blocked_transactions', 'ping', 'add_node']
 
     def __init__(self, node):
         self.node = node
