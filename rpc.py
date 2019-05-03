@@ -70,8 +70,12 @@ class RpcServer():
 	
 
 #node stat rpc
-    def getBlockCount(self):
-        return True
+    def get_BlockCount(self):
+        bcdb = BlockChainDB()
+        alldata = bcdb.find_all()
+        result = alldata[0]
+        print('request:',request)
+        return result
 
     def getBlockHash(self):
         return True
@@ -82,7 +86,7 @@ class RpcServer():
 
 class RpcClient():
 
-    ALLOW_METHOD = ['get_Blocks', 'get_transactions', 'get_blockchain', 'new_block', 'new_untransaction', 'blocked_transactions', 'ping', 'add_node']
+    ALLOW_METHOD = ['get_BlockCount', 'get_Blocks', 'get_transactions', 'get_blockchain', 'new_block', 'new_untransaction', 'blocked_transactions', 'ping', 'add_node']
 
     def __init__(self, node):
         self.node = node
