@@ -45,7 +45,6 @@ class RpcServer():
     def add_node(self, address):
         add_node(address)
         return True
-#data format between p2p network
     
     def router(self, request):
         mode = request["method"] 
@@ -105,8 +104,10 @@ class RpcServer():
     def get_BlockHeader(self, request):
         bcdb = BlockChainDB()
         alldata = bcdb.find_all()
-        alldata = alldata[0]
-        dict1 = {"error":0,"result":alldata}
+        dict1 = {"error":1,"result":""}
+        for block in alldata:
+            if block["hash"]==request["data"]["block_hash"]:
+                dict1 = {"error":0,"result":block}
         print(dict1)
         return dict1
     
