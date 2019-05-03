@@ -3,7 +3,7 @@ import multiprocessing
 import rpc
 from database import NodeDB, TransactionDB, BlockChainDB
 from lib.common import cprint
-
+import json
 def start_node(hostport='0.0.0.0:3009'):
     init_node()
     cprint('INFO', 'Node initialize success.')

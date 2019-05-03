@@ -50,15 +50,15 @@ class RpcServer():
     def router(self, request):
         mode = request["request"] 
         if mode == "send_Header":
-            send_Header(request)
+            return send_Header(request)
         elif mode == "get_Blocks":
-            get_Blocks(request)
+            return get_Blocks(request)
         elif mode == "get_BlockCount":
-            get_BlockCount(request)
+            return get_BlockCount(request)
         elif mode == "get_BlockHash":
-            get_BlockHash(request)
-        else mode == "get_BlockHeader":
-            get_BlockHeader(request)
+            return get_BlockHash(request)
+        elif mode == "get_BlockHeader":
+            return get_BlockHeader(request)
 
     def send_Header(self, request):
         return True
