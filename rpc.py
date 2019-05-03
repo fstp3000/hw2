@@ -88,28 +88,34 @@ class RpcServer():
                 
 #node stat rpc
     def get_BlockCount(self, request):
+        print('request:',request)
         bcdb = BlockChainDB()
         alldata = bcdb.find_all()
-        result = alldata[0]
-        #print('request:',request)
-        return result
+        response = {"error":0,"result":len(alldata)}
+        print('request:',request)
+        return response
 
     def get_BlockHash(self, request):
+        print('request:',request)
         bcdb = BlockChainDB()
         alldata = bcdb.find_all()
-        result = alldata[0]
-        #print('request:',request)
-        return result
-
+        response = {"error":1,"result":""}
+        height = request["data"]["block_height"]
+        if alldata[height] is not None:
+            response = {"error":0,"result":alldata[height]["hash"]}
+        print('response:',response)
+        return response
+    
     def get_BlockHeader(self, request):
+        print('request:',request)
         bcdb = BlockChainDB()
         alldata = bcdb.find_all()
-        dict1 = {"error":1,"result":""}
+        response = {"error":1,"result":""}
         for block in alldata:
             if block["hash"]==request["data"]["block_hash"]:
-                dict1 = {"error":0,"result":block}
-        print(dict1)
-        return dict1
+                response = {"error":0,"result":block}
+        print('response:',response)
+        return response
     
 
 class RpcClient():
