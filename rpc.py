@@ -49,18 +49,24 @@ class RpcServer():
     
     def router(self, request):
         mode = request["method"] 
-        if mode == "send_Header":
+        if mode == "sendHeader":
             return self.send_Header(request)
-        elif mode == "get_Blocks":
+        elif mode == "getBlocks":
             return self.get_Blocks(request)
-        elif mode == "get_BlockCount":
+        elif mode == "getBlockCount":
             return self.get_BlockCount(request)
-        elif mode == "get_BlockHash":
+        elif mode == "getBlockHash":
             return self.get_BlockHash(request)
-        elif mode == "get_BlockHeader":
+        elif mode == "getBlockHeader":
             return self.get_BlockHeader(request)
 
     def send_Header(self, request):
+        bcdb = BlockChainDB()
+        alldata = bcdb.find_all()
+        alldata = alldata[0]
+        block = alldata["version"]+alldata["prev_block"]+alldata["merkle_root"]+alldata["target"]+alldata["nonce"]
+        print(block)
+        dict1 = {"error":0}
         return True
 
     def get_Blocks(self, request):
@@ -99,9 +105,10 @@ class RpcServer():
     def get_BlockHeader(self, request):
         bcdb = BlockChainDB()
         alldata = bcdb.find_all()
-        result = alldata[0]
-        #print('request:',request)
-        return True
+        alldata = alldata[0]
+        dict1 = {"error":0,"result":alldata}
+        print(dict1)
+        return dict1
     
 
 class RpcClient():
