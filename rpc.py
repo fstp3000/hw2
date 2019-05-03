@@ -69,22 +69,29 @@ class RpcServer():
         return True
 
     def get_Blocks(self, request):
+        print('request:',request)
         bcdb = BlockChainDB()
         alldata = bcdb.find_all()
-        result = []
+        serias = []
         flag = False
-        print('request:',request)
         count_max = request['data']['hash_count']
         count = 0
-        for index,block in enumerate(alldata):
+        response = {"error":1, "result":[]}
+        for block in alldata:
+            print('---------------------------------------------------')
             if block['hash']==request['data']['hash_begin']:
                 flag = True
+                next
             if flag == True:
                 if count < count_max:
-                    result.append(block['hash'])
+                    count += 1
+                    header = block["version"]+block["prev_block"]+block["merkle_root"]+block["target"]+str(block["nouce"])
+                    serias.append(header)
                 else:
-                    break
-        return result
+                    response = {"error":0, "result":serias}
+                    break 
+        print('response:',response)
+        return response
                 
 #node stat rpc
     def get_BlockCount(self, request):
@@ -92,7 +99,7 @@ class RpcServer():
         bcdb = BlockChainDB()
         alldata = bcdb.find_all()
         response = {"error":0,"result":len(alldata)}
-        print('request:',request)
+        print('response:',response)
         return response
 
     def get_BlockHash(self, request):
