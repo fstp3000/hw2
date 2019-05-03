@@ -51,22 +51,21 @@ class RpcServer():
 
     def get_Blocks(self,request):
         bcdb = BlockChainDB()
-        #alldata = bcdb.find_all()
-        #result = []
-        #flag = False
-        #print('request:',request)
-        #count_max = request['data']['hash_count']
-        #count = 0
-        #for index,block in enumerate(alldata[0]):
-        #    if block['hash']==request['data']['hash_begin']:
-        #        flag = True
-        #    if flag == True:
-        #        if count < count_max:
-        #            result.append(block['hash'])
-        #        else:
-        #            return bcdb.find_all()
-        #return {"error":0, "result":result}
-        return bcdb.find_all()
+        alldata = bcdb.find_all()
+        result = []
+        flag = False
+        print('request:',request)
+        count_max = request['data']['hash_count']
+        count = 0
+        for index,block in enumerate(alldata):
+            if block['hash']==request['data']['hash_begin']:
+                flag = True
+            if flag == True:
+                if count < count_max:
+                    result.append(block['hash'])
+                else:
+                    break
+        return result
                 
 	
 
