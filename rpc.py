@@ -48,17 +48,17 @@ class RpcServer():
 #data format between p2p network
     
     def router(self, request):
-        mode = request["request"] 
+        mode = request["method"] 
         if mode == "send_Header":
-            return send_Header(request)
+            return self.send_Header(request)
         elif mode == "get_Blocks":
-            return get_Blocks(request)
+            return self.get_Blocks(request)
         elif mode == "get_BlockCount":
-            return get_BlockCount(request)
+            return self.get_BlockCount(request)
         elif mode == "get_BlockHash":
-            return get_BlockHash(request)
+            return self.get_BlockHash(request)
         elif mode == "get_BlockHeader":
-            return get_BlockHeader(request)
+            return self.get_BlockHeader(request)
 
     def send_Header(self, request):
         return True
@@ -81,8 +81,6 @@ class RpcServer():
                     break
         return result
                 
-	
-
 #node stat rpc
     def get_BlockCount(self, request):
         bcdb = BlockChainDB()
