@@ -59,14 +59,14 @@ def rm_dup(nodes):
     return sorted(set(nodes)) 
     
 if __name__=='__main__':
-
     msg_send_Header = {"method": "sendHeader","data": {"block_hash": "0000be5b53f2dc1a836d75e7a868bf9ee576d57891855b521eaabfa876f8a606","block_header": "000000010000000008e647742775a230787d66fdf92c46a48c896bfbc85cdc8acc67e87d0000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000002321","block_height": 10 }}
-    msg_get_Blocks = {"method":"get_Blocks","data":{"hash_count":1,"hash_begin":"0000a1aff3716cb8925b18d2f6bb38d3f168d682c1218a70b503b5c600474e28","hash_stop":"00000d08eafd831c138e4eb4c06ee5c3dc63aa40564c5a4322dcb824622754cf"}}
+    msg_get_Blocks = {"method":"getBlocks","data":{"hash_count":1,"hash_begin":"0000a1aff3716cb8925b18d2f6bb38d3f168d682c1218a70b503b5c600474e28","hash_stop":"00000d08eafd831c138e4eb4c06ee5c3dc63aa40564c5a4322dcb824622754cf"}}
     msg_get_BlockCount = {"method":"getBlockCount"}
     msg_get_BlockHash = {"method": "getBlockHash","data": {"block_height": 10}}
-    msg_get_BlockHeader = {"method": "getBlockHeader","data": {"block_hash": "0000be5b53f2dc1a836d75e7a868bf9ee576d57891855b521eaabfa876f8a606"}}
+    msg_get_BlockHeader = {"method": "getBlockHeader","data": {"block_hash": "00003c2497b1a6a95bddea0a1d9072ba5afd0b3c36b9e220d32359bdfbd6438b"}}
+    err_msg_get_BlockHeader = {"method": "getBlockHeader","data": {"block_hash": "10003c2497b1a6a95bddea0a1d9072ba5afd0b3c36b9e220d32359bdfbd6438b"}}
     #send_Header test
-    #response = rpc.BroadCast().router(msg_send_Header)
+    #response = rpc.BroadCast().router(dic)
     #print(json.dumps(response, indent = 4, sort_keys=True))
     
     #get_Blocks test
@@ -74,13 +74,16 @@ if __name__=='__main__':
     print(json.dumps(response, indent = 4, sort_keys=True))
     
     #get_BlockCount test
-    #response = rpc.BroadCast().router(msg_get_BlockCount)
+    #response = rpc.BroadCast().router(dic)
     #print(json.dumps(response, indent = 4, sort_keys=True))
     
     #get_BlockHash test
-    #response = rpc.BroadCast().router(msg_get_BlockHash)
+    #response = rpc.BroadCast().router(dic)
     #print(json.dumps(response, indent = 4, sort_keys=True))
     
     #getBlockHeader test
-    #response = rpc.BroadCast().router(msg_get_BlockHeader)
-    #print(json.dumps(response, indent = 4, sort_keys=True))
+    response = rpc.BroadCast().router(msg_get_BlockHeader)
+    print(json.dumps(response, indent = 4, sort_keys=True))
+    #getBlockHeader err test
+    response = rpc.BroadCast().router(err_msg_get_BlockHeader)
+    print(json.dumps(response, indent = 4, sort_keys=True))
