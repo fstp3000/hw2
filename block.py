@@ -3,16 +3,26 @@ import hashlib
 import time
 from model import Model
 from rpc import BroadCast
+import json
+
 
 class Block(Model):
-
+    
     def __init__(self, index, previous_hash):
         self.index = index
         self.version = '00000001'
         self.prev_block = previous_hash
         self.merkle_root = '0000000000000000000000000000000000000000000000000000000000000000'
-        self.target = '0001000000000000000000000000000000000000000000000000000000000000'
+        self.target = self.read_config("target")
 
+    def read_config(self, path1, path2 = None):
+        with open('config.json') as f:
+            config = json.load(f)
+        if path2 == None:
+            return config[path1]
+        else:
+            return config[path1][path2]
+            
 
     def pow(self):
         """
@@ -38,7 +48,7 @@ class Block(Model):
         """
         Validates the Proof
         """
-        return self.ghash(nouce)[:4] == "0000"
+        return int(self.ghash(nouce),16) < int("0001000000000000000000000000000000000000000000000000000000000000",16)
 
     def to_dict(self):
         return self.__dict__
@@ -57,6 +67,3 @@ class Block(Model):
     @staticmethod
     def spread(Header):
         BroadCast().router(Header)
-if __name__=="__main__":
-    bc = Block('0000000008e647742775a230787d66fdf92c46a48c896bfbc85cdc8acc67e87d')
-    print(bc.ghash(bc.pow()))

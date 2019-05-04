@@ -4,20 +4,15 @@ import rpc
 from database import NodeDB, TransactionDB, BlockChainDB
 from lib.common import cprint
 import json
-def start_node(hostport='0.0.0.0:3009'):
+def start_node():
+    with open('config.json') as f:
+        config = json.load(f)        
+    host = '0.0.0.0'
+    port = config["p2p_port"]
     init_node()
     cprint('INFO', 'Node initialize success.')
-    try:
-        if hostport.find('.') != -1:
-            host,port = hostport.split(':')
-        else:
-            host = '0.0.0.0'
-            port = hostport
-    except Exception:
-        cprint('ERROR','params must be {port} or {host}:{port} , ps: 3009 or 0.0.0.0:3009')
     p = multiprocessing.Process(target=rpc.start_server,args=(host,int(port)))
     p.start()
-    cprint('INFO','Node start success. Listen at %s.' % (hostport,))
 
 def init_node():
     """

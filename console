@@ -36,7 +36,7 @@ class Miner():
         if get_account() == None:
             cprint('ERROR','Please create account before start miner.')
             exit()
-        start_node(args[0])
+        start_node()
         while True :
             cprint('Miner new block',mine().to_dict())
 

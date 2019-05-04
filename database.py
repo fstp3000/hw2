@@ -70,14 +70,11 @@ class BaseDB():
             return "error"
         else:
             if item["prev_block"]!=alldata[-1]["hash"]:
-                return "error"
-            
+                return "fakeblock"
             hash_check =  hashlib.sha256(( str(item["version"]) + str(item["prev_block"]) + str(item["merkle_root"]) + str(item["target"]) + str(item["nouce"]).zfill(8)).encode('utf-8')).hexdigest()
             if hash_check != item["hash"]:
-                return "error"
-            print('ckeckok')
-            #if hash(item)!=item["hash"]:
-            #    return "error"
+                return "fakeblock"
+         
             self.write(item)  
 
 class NodeDB(BaseDB):
