@@ -73,7 +73,7 @@ class RpcServer():
         nouce = request["data"]["block_header"][200:208]
         
         block = {"version":version, "prev_block":prev_block, "merkle":merkle_root, "target":target, "nouce":nouce, "hash":blockhash}
-
+        print(block)
         BlockChainDB().insert(block)
         UnTransactionDB().clear()
         cprint('INFO',"Receive new block.")

@@ -57,6 +57,7 @@ def mine():
     BlockChainDB().insert(cb.to_dict())
     TransactionDB().insert(untxs)
     # Broadcast to other nodes
+    print(cb)
     Block.spread(cb.to_header())
     Transaction.blocked_spread(untxs)
     return cb
