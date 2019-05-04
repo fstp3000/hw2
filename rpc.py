@@ -64,14 +64,14 @@ class RpcServer():
         #cprint('RPC', block)
         #transfer header to block format
         blockhash = request["data"]["block_hash"]
-        
+        index = request["data"]["index"] 
         version = request["data"]["block_header"][0:8]
         prev_block = request["data"]["block_header"][8:72]
         merkle_root = request["data"]["block_header"][72:136]
         target = request["data"]["block_header"][136:200]
         nouce = int(request["data"]["block_header"][200:208])
         
-        block = {"version":version, "prev_block":prev_block, "merkle":merkle_root, "target":target, "nouce":nouce, "hash":blockhash}
+        block = {"index":index, "version":version, "prev_block":prev_block, "merkle":merkle_root, "target":target, "nouce":nouce, "hash":blockhash}
         #print(block)
         BlockChainDB().insert(block)
         UnTransactionDB().clear()
