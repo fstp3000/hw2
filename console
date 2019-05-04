@@ -25,7 +25,7 @@ class Node():
         cprint('Allnode',get_nodes())
     
     def run(self, args):
-        start_node(args[0])
+        start_node()
 
     def list(self, args):
         for t in NodeDB().find_all():
