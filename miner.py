@@ -19,7 +19,7 @@ def coinbase():
     First block generate.
     """
     rw = reward()
-    cb = Block(0)
+    cb = Block(0,0)
     nouce = cb.pow()
     cb.make(nouce)
     # Save block and transactions to database.
@@ -50,7 +50,7 @@ def mine():
 
     # Miner reward is the first transaction.
     untx_hashes.insert(0,rw.hash)
-    cb = Block(last_block['hash'])
+    cb = Block(last_block['index']+1,last_block['hash'])
     nouce = cb.pow()
     cb.make(nouce)
     # Save block and transactions to database.

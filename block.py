@@ -6,7 +6,8 @@ from rpc import BroadCast
 
 class Block(Model):
 
-    def __init__(self, previous_hash):
+    def __init__(self, index, previous_hash):
+        self.index = index
         self.version = '00000001'
         self.prev_block = previous_hash
         self.merkle_root = '0000000000000000000000000000000000000000000000000000000000000000'

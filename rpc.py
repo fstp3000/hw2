@@ -154,6 +154,7 @@ class RpcClient():
 class BroadCast():
 
     def __getattr__(self, name):
+        print(name)
         def noname(*args, **kw):
             cs = get_clients()
             rs = []
