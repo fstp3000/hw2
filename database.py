@@ -1,7 +1,7 @@
 #coding:utf-8
 import json
 import os
-
+import hashlib
 BASEDBPATH = 'data'
 BLOCKFILE = 'blockchain'
 TXFILE = 'tx'
@@ -63,12 +63,21 @@ class BaseDB():
     
     def block_hash_insert(self, item):
         exists = False
-        for i in self.find_all():
-            #print('check',i)
-            if item['hash'] == i['hash']:
-                exists = True
-                break
-        if not exists:
+        alldata = self.find_all()
+        print('item:',item)
+        if len(alldata)==0:
+            print('nodata')
+            return "error"
+        else:
+            if item["prev_block"]!=alldata[-1]["hash"]:
+                return "error"
+            
+            hash_check =  hashlib.sha256(( str(item["version"]) + str(item["prev_block"]) + str(item["merkle_root"]) + str(item["target"]) + str(item["nouce"]).zfill(8)).encode('utf-8')).hexdigest()
+            if hash_check != item["hash"]:
+                return "error"
+            print('ckeckok')
+            #if hash(item)!=item["hash"]:
+            #    return "error"
             self.write(item)  
 
 class NodeDB(BaseDB):
