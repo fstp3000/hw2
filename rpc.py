@@ -70,7 +70,7 @@ class RpcServer():
         prev_block = request["data"]["block_header"][8:72]
         merkle_root = request["data"]["block_header"][72:136]
         target = request["data"]["block_header"][136:200]
-        nouce = request["data"]["block_header"][200:208]
+        nouce = int(request["data"]["block_header"][200:208])
         
         block = {"version":version, "prev_block":prev_block, "merkle":merkle_root, "target":target, "nouce":nouce, "hash":blockhash}
         #print(block)
