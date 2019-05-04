@@ -4,7 +4,7 @@ from xmlrpc.client import ServerProxy
 from node import get_nodes, add_node
 from database import BlockChainDB, UnTransactionDB, TransactionDB
 from lib.common import cprint
-from block import Block
+#from block import Block
 server = None
 
 PORT = 8301
@@ -64,10 +64,16 @@ class RpcServer():
         print('request:',request)
         #cprint('RPC', block)
         #transfer header to block format
-        prevhash = request["data"]["block_header"][8:72]
+        blockhash = request["data"]["block_hash"]
+        
+        version = request["data"]["block_header"][0:8]
+        prev_block = request["data"]["block_header"][8:72]
+        merkle_root = request["data"]["block_header"][72:136]
+        target = request["data"]["block_header"][136:200]
         nouce = request["data"]["block_header"][200:208]
-        block = Block()
-        block.make(nouce)
+        
+        block = {"version":version, "prev_block":prev_block, "merkle":merkle_root, "target":target, "nouce":nouce, "hash":blockhash}
+
         BlockChainDB().insert(block)
         UnTransactionDB().clear()
         cprint('INFO',"Receive new block.")

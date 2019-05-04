@@ -44,7 +44,7 @@ class Block(Model):
     
     def to_header(self):
         header =  str(self.version) + str(self.prev_block) + str(self.merkle_root) + str(self.target) + str(self.nouce).zfill(8)
-        msg_sendHeader = {"method": "sendHeader",data:{"block_hash": self.hash,"block_header": header, "block_height": 10}}
+        msg_sendHeader = {"method": "sendHeader","data":{"block_hash": self.hash,"block_header": header, "block_height": 10}}
         return msg_sendHeader
     @classmethod
     def from_dict(cls, bdict):
