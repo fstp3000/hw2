@@ -1,6 +1,6 @@
 {
-    "p2p_port": 4008,
-    "user_port": 3008,
+    "p2p_port": 4010,
+    "user_port": 3010,
     "neighbor_list" : [
         {
             "ip": "127.0.0.1",

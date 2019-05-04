@@ -80,7 +80,23 @@ class BaseDB():
 class NodeDB(BaseDB):
 
     def set_path(self):
-        self.filepath = NODEFILE  
+        self.filepath = NODEFILE
+    def find_all(self):
+        with open('config.json') as f:
+            config = json.load(f)
+        nodes = []
+        for node in config["neighbor_list"]:
+            nodes.append("http://"+str(node["ip"])+":"+str(node["p2p_port"]))
+        #raw = ''
+        #if not os.path.exists(self.filepath):
+        #    return []
+        #with open(self.filepath,'r+') as f:
+        #    raw = f.readline()
+        #if len(raw) > 0:
+        #    data = json.loads(raw)
+        #else:
+        #    data = []
+        return nodes
 
 
 class AccountDB(BaseDB):
