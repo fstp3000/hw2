@@ -41,7 +41,11 @@ class Block(Model):
 
     def to_dict(self):
         return self.__dict__
-
+    
+    def to_header(self):
+        header =  str(self.version) + str(self.prev_block) + str(self.merkle_root) + str(self.target) + str(self.nouce).zfill(8)
+        msg_sendHeader = {"method": "sendHeader",data:{"block_hash": self.hash,"block_header": header, "block_height": 10}}
+        return msg_sendHeader
     @classmethod
     def from_dict(cls, bdict):
         b = cls(bdict['version'], bdict['prev_block'], bdict['merkle_root'], bdict['target'])
@@ -50,8 +54,8 @@ class Block(Model):
         return b
 
     @staticmethod
-    def spread(block):
-        BroadCast().new_block(block)
+    def spread(Header):
+        BroadCast().router(Header)
 if __name__=="__main__":
     bc = Block('0000000008e647742775a230787d66fdf92c46a48c896bfbc85cdc8acc67e87d')
     print(bc.ghash(bc.pow()))

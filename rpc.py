@@ -4,6 +4,7 @@ from xmlrpc.client import ServerProxy
 from node import get_nodes, add_node
 from database import BlockChainDB, UnTransactionDB, TransactionDB
 from lib.common import cprint
+from block import Block
 server = None
 
 PORT = 8301
@@ -63,8 +64,12 @@ class RpcServer():
         print('request:',request)
         #cprint('RPC', block)
         #transfer header to block format
-        #BlockChainDB().insert(block)
-        #UnTransactionDB().clear()
+        prevhash = request["data"]["block_header"][8:72]
+        nouce = request["data"]["block_header"][200:208]
+        block = Block()
+        block.make(nouce)
+        BlockChainDB().insert(block)
+        UnTransactionDB().clear()
         cprint('INFO',"Receive new block.")
         response = {"error":0}
         print('response:',response)
@@ -80,7 +85,6 @@ class RpcServer():
         count = 0
         response = {"error":1, "result":[]}
         for block in alldata:
-            print('---------------------------------------------------')
             if block['hash']==request['data']['hash_begin']:
                 flag = True
                 next
