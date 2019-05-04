@@ -52,9 +52,19 @@ class BaseDB():
         with open(self.filepath,'w+') as f:
             f.write('')
 
-    def hash_insert(self, item):
+    def tx_hash_insert(self, item):
         exists = False
         for i in self.find_all():
+            if item['hash'] == i['hash']:
+                exists = True
+                break
+        if not exists:
+            self.write(item)  
+    
+    def block_hash_insert(self, item):
+        exists = False
+        for i in self.find_all():
+            #print('check',i)
             if item['hash'] == i['hash']:
                 exists = True
                 break
@@ -97,7 +107,7 @@ class BlockChainDB(BaseDB):
         return one
 
     def insert(self, item):
-        self.hash_insert(item)
+        self.block_hash_insert(item)
 
 class TransactionDB(BaseDB):
     """
@@ -118,7 +128,7 @@ class TransactionDB(BaseDB):
         if not isinstance(txs,list):
             txs = [txs]
         for tx in txs:
-            self.hash_insert(tx)
+            self.tx_hash_insert(tx)
 
 class UnTransactionDB(TransactionDB):
     """

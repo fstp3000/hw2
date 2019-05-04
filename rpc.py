@@ -4,7 +4,6 @@ from xmlrpc.client import ServerProxy
 from node import get_nodes, add_node
 from database import BlockChainDB, UnTransactionDB, TransactionDB
 from lib.common import cprint
-#from block import Block
 server = None
 
 PORT = 8301
