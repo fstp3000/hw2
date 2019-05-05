@@ -47,7 +47,7 @@ class RpcServer():
         return True
     
     def router(self, request):
-        mode = request["method"] 
+        mode = request["method"]
         if mode == "sendHeader":
             return self.send_Header(request)
         elif mode == "getBlocks":
@@ -163,7 +163,7 @@ class BroadCast():
                 except ConnectionRefusedError:
                     cprint('WARN', 'Contact with node %s failed when calling method %s , please check the node.' % (c.node,name))
                 else:
-                    cprint('INFO', 'Contact with node %s successful calling method %s .' % (c.node,name))
+                    cprint('INFO', 'Contact with node %s successful calling method %s .' % (c.node , name))
             return rs
         return noname
 

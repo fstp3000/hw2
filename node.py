@@ -6,7 +6,7 @@ from lib.common import cprint
 import json
 def start_node():
     with open('config.json') as f:
-        config = json.load(f)        
+        connfig = json.load(f)        
     host = '0.0.0.0'
     port = config["p2p_port"]
     init_node()
