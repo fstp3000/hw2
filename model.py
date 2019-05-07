@@ -2,7 +2,7 @@
 import json
 
 class Model():
-    
+
     def __getitem__(self,key):
         print(key)
         if hasattr(self,key):

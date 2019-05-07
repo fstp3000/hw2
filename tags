@@ -1,0 +1,238 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+A	lib/common.py	/^A = 0$/;"	v
+ACCOUNTFILE	database.py	/^ACCOUNTFILE = 'account'$/;"	v
+ALLOW_METHOD	rpc.py	/^    ALLOW_METHOD = ['router', 'get_BlockHash', 'get_BlockHeader', 'get_BlockCount', 'get_Blocks', 'send_Header','get_transactions', 'get_blockchain', 'new_block', 'new_untransaction', 'blocked_transactions', 'ping', 'add_node']$/;"	v	class:RpcClient
+AccountDB	account.py	/^from database import AccountDB$/;"	i
+AccountDB	database.py	/^class AccountDB(BaseDB):$/;"	c
+B	lib/common.py	/^B = 7$/;"	v
+BASEDBPATH	database.py	/^BASEDBPATH = 'data'$/;"	v
+BLOCKFILE	database.py	/^BLOCKFILE = 'blockchain'$/;"	v
+BaseDB	database.py	/^class BaseDB():$/;"	c
+Block	block.py	/^class Block(Model):$/;"	c
+Block	miner.py	/^from block import Block$/;"	i
+BlockChainDB	database.py	/^class BlockChainDB(BaseDB):$/;"	c
+BlockChainDB	miner.py	/^from database import BlockChainDB, TransactionDB, UnTransactionDB$/;"	i
+BlockChainDB	node.py	/^from database import NodeDB, TransactionDB, BlockChainDB$/;"	i
+BlockChainDB	rpc.py	/^from database import BlockChainDB, UnTransactionDB, TransactionDB$/;"	i
+BroadCast	block.py	/^from rpc import BroadCast$/;"	i
+BroadCast	rpc.py	/^class BroadCast():$/;"	c
+BroadCast	transaction.py	/^from rpc import BroadCast$/;"	i
+F0	lib/ripemd.py	/^def F0(x, y, z):$/;"	f
+F1	lib/ripemd.py	/^def F1(x, y, z):$/;"	f
+F2	lib/ripemd.py	/^def F2(x, y, z):$/;"	f
+F3	lib/ripemd.py	/^def F3(x, y, z):$/;"	f
+F4	lib/ripemd.py	/^def F4(x, y, z):$/;"	f
+G	lib/common.py	/^G = (Gx, Gy)$/;"	v
+Gx	lib/common.py	/^Gx = 55066263022277343669578718895168534326250603453777594175500187360389116729240$/;"	v
+Gy	lib/common.py	/^Gy = 32670510020758816978083085130507043184471273380659243275938904335757337482424$/;"	v
+K0	lib/ripemd.py	/^K0 = 0x00000000$/;"	v
+K1	lib/ripemd.py	/^K1 = 0x5A827999$/;"	v
+K2	lib/ripemd.py	/^K2 = 0x6ED9EBA1$/;"	v
+K3	lib/ripemd.py	/^K3 = 0x8F1BBCDC$/;"	v
+K4	lib/ripemd.py	/^K4 = 0xA953FD4E$/;"	v
+KK0	lib/ripemd.py	/^KK0 = 0x50A28BE6$/;"	v
+KK1	lib/ripemd.py	/^KK1 = 0x5C4DD124$/;"	v
+KK2	lib/ripemd.py	/^KK2 = 0x6D703EF3$/;"	v
+KK3	lib/ripemd.py	/^KK3 = 0x7A6D76E9$/;"	v
+KK4	lib/ripemd.py	/^KK4 = 0x00000000$/;"	v
+MAX_COIN	miner.py	/^MAX_COIN = 21000000$/;"	v
+Model	account.py	/^from model import Model$/;"	i
+Model	block.py	/^from model import Model$/;"	i
+Model	model.py	/^class Model():$/;"	c
+Model	transaction.py	/^from model import Model$/;"	i
+N	lib/common.py	/^N = 115792089237316195423570985008687907852837564279074904382605163141518161494337$/;"	v
+NODEFILE	database.py	/^NODEFILE = 'node'$/;"	v
+NodeDB	database.py	/^class NodeDB(BaseDB):$/;"	c
+NodeDB	node.py	/^from database import NodeDB, TransactionDB, BlockChainDB$/;"	i
+P	lib/common.py	/^P = 2**256 - 2**32 - 977$/;"	v
+PADDING	lib/ripemd.py	/^PADDING = [0x80] + [0]*63$/;"	v
+PORT	rpc.py	/^PORT = 8301$/;"	v
+R	lib/ripemd.py	/^def R(a, b, c, d, e, Fj, Kj, sj, rj, X):$/;"	f
+REWARD	miner.py	/^REWARD = 20$/;"	v
+RIPEMD160	lib/common.py	/^from lib.ripemd import RIPEMD160$/;"	i
+RIPEMD160	lib/ripemd.py	/^class RIPEMD160:$/;"	c
+RMD160Final	lib/ripemd.py	/^def RMD160Final(ctx):$/;"	f
+RMD160Transform	lib/ripemd.py	/^def RMD160Transform(state, block): #uint32 state[5], uchar block[64]$/;"	f
+RMD160Update	lib/ripemd.py	/^def RMD160Update(ctx, inp, inplen):$/;"	f
+RMDContext	lib/ripemd.py	/^class RMDContext:$/;"	c
+ROL	lib/ripemd.py	/^def ROL(n, x):$/;"	f
+RpcClient	rpc.py	/^class RpcClient():$/;"	c
+RpcServer	rpc.py	/^class RpcServer():$/;"	c
+ServerProxy	rpc.py	/^from xmlrpc.client import ServerProxy$/;"	i
+SimpleXMLRPCServer	rpc.py	/^from xmlrpc.server import SimpleXMLRPCServer  $/;"	i
+TXFILE	database.py	/^TXFILE = 'tx'$/;"	v
+Transaction	miner.py	/^from transaction import Vout, Transaction$/;"	i
+Transaction	transaction.py	/^class Transaction():$/;"	c
+TransactionDB	database.py	/^class TransactionDB(BaseDB):$/;"	c
+TransactionDB	miner.py	/^from database import BlockChainDB, TransactionDB, UnTransactionDB$/;"	i
+TransactionDB	node.py	/^from database import NodeDB, TransactionDB, BlockChainDB$/;"	i
+TransactionDB	rpc.py	/^from database import BlockChainDB, UnTransactionDB, TransactionDB$/;"	i
+TransactionDB	transaction.py	/^from database import TransactionDB, UnTransactionDB$/;"	i
+UNTXFILE	database.py	/^UNTXFILE = 'untx'$/;"	v
+UnTransactionDB	database.py	/^class UnTransactionDB(TransactionDB):$/;"	c
+UnTransactionDB	miner.py	/^from database import BlockChainDB, TransactionDB, UnTransactionDB$/;"	i
+UnTransactionDB	rpc.py	/^from database import BlockChainDB, UnTransactionDB, TransactionDB$/;"	i
+UnTransactionDB	transaction.py	/^from database import TransactionDB, UnTransactionDB$/;"	i
+Vin	transaction.py	/^class Vin(Model):$/;"	c
+Vout	miner.py	/^from transaction import Vout, Transaction$/;"	i
+Vout	transaction.py	/^class Vout(Model):$/;"	c
+__getattr__	rpc.py	/^    def __getattr__(self, name):$/;"	m	class:BroadCast	file:
+__getattr__	rpc.py	/^    def __getattr__(self, name):$/;"	m	class:RpcClient	file:
+__getitem__	model.py	/^    def __getitem__(self,key):$/;"	m	class:Model	file:
+__init__	block.py	/^    def __init__(self, index, previous_hash):$/;"	m	class:Block
+__init__	database.py	/^    def __init__(self):$/;"	m	class:BaseDB
+__init__	lib/ripemd.py	/^    def __init__(self):$/;"	m	class:RMDContext
+__init__	lib/ripemd.py	/^    def __init__(self, arg=None):$/;"	m	class:RIPEMD160
+__init__	rpc.py	/^    def __init__(self, node):$/;"	m	class:RpcClient
+__init__	rpc.py	/^    def __init__(self,server):$/;"	m	class:RpcServer
+__init__	transaction.py	/^    def __init__(self, receiver, amount):$/;"	m	class:Vout
+__init__	transaction.py	/^    def __init__(self, utxo_hash, amount):$/;"	m	class:Vin
+__init__	transaction.py	/^    def __init__(self, vin, vout,):$/;"	m	class:Transaction
+__setitem__	model.py	/^    def __setitem__(self,key,value):$/;"	m	class:Model	file:
+__str__	model.py	/^    def __str__(self):$/;"	m	class:Model	file:
+add_node	node.py	/^def add_node(address):$/;"	f
+add_node	rpc.py	/^    def add_node(self, address):$/;"	m	class:RpcServer
+add_node	rpc.py	/^from node import get_nodes, add_node$/;"	i
+all_hashes	database.py	/^    def all_hashes(self):$/;"	m	class:UnTransactionDB
+bin_dbl_sha256	lib/common.py	/^def bin_dbl_sha256(s):$/;"	f
+bin_hash160	lib/common.py	/^def bin_hash160(string):$/;"	f
+bin_to_b58check	lib/common.py	/^def bin_to_b58check(inp, magicbyte=0):$/;"	f
+binascii	lib/common.py	/^import binascii$/;"	i
+block_hash_insert	database.py	/^    def block_hash_insert(self, item):$/;"	m	class:BaseDB
+blocked_spread	transaction.py	/^    def blocked_spread(txs):$/;"	m	class:Transaction
+blocked_transactions	rpc.py	/^    def blocked_transactions(self,txs):$/;"	m	class:RpcServer
+bytes_to_hex_string	lib/common.py	/^def bytes_to_hex_string(b):$/;"	f
+changebase	lib/common.py	/^def changebase(string, frm, to, minlen=0):$/;"	f
+check_node	node.py	/^def check_node(address):$/;"	f
+clear	database.py	/^    def clear(self):$/;"	m	class:BaseDB
+code_strings	lib/common.py	/^code_strings = {$/;"	v
+coinbase	miner.py	/^def coinbase():$/;"	f
+common	account.py	/^import lib.common$/;"	i
+copy	lib/ripemd.py	/^        import copy$/;"	i
+copy	lib/ripemd.py	/^    def copy(self):$/;"	m	class:RIPEMD160
+copy	lib/ripemd.py	/^    def copy(self):$/;"	m	class:RMDContext
+cprint	lib/common.py	/^def cprint(tag,content):$/;"	f
+cprint	node.py	/^from lib.common import cprint$/;"	i
+cprint	rpc.py	/^from lib.common import cprint$/;"	i
+decode	lib/common.py	/^def decode(string, base):$/;"	f
+decode_pubkey	lib/common.py	/^def decode_pubkey(pub, formt=None):$/;"	f
+digest	lib/ripemd.py	/^    def digest(self):$/;"	m	class:RIPEMD160
+digest_size	lib/ripemd.py	/^digest_size = 20$/;"	v
+digestsize	lib/ripemd.py	/^digestsize = 20$/;"	v
+encode	lib/common.py	/^def encode(val, base, minlen=0):$/;"	f
+encode_pubkey	lib/common.py	/^def encode_pubkey(pub, formt):$/;"	f
+extract	lib/common.py	/^        def extract(d, cs):$/;"	f	function:decode
+filepath	database.py	/^    filepath = ''$/;"	v	class:BaseDB
+find	database.py	/^    def find(self, hash):$/;"	m	class:BlockChainDB
+find	database.py	/^    def find(self, hash):$/;"	m	class:TransactionDB
+find_all	database.py	/^    def find_all(self):$/;"	m	class:BaseDB
+find_all	database.py	/^    def find_all(self):$/;"	m	class:NodeDB
+find_one	database.py	/^    def find_one(self):$/;"	m	class:AccountDB
+from_byte_to_int	lib/common.py	/^def from_byte_to_int(a):$/;"	f
+from_dict	block.py	/^    def from_dict(cls, bdict):$/;"	m	class:Block
+from_int_representation_to_bytes	lib/common.py	/^def from_int_representation_to_bytes(a):$/;"	f
+from_int_to_byte	lib/common.py	/^def from_int_to_byte(a):$/;"	f
+from_string_to_bytes	lib/common.py	/^def from_string_to_bytes(a):$/;"	f
+gen_hash	transaction.py	/^    def gen_hash(self):$/;"	m	class:Transaction
+get_BlockCount	rpc.py	/^    def get_BlockCount(self, request):$/;"	m	class:RpcServer
+get_BlockHash	rpc.py	/^    def get_BlockHash(self, request):$/;"	m	class:RpcServer
+get_BlockHeader	rpc.py	/^    def get_BlockHeader(self, request):$/;"	m	class:RpcServer
+get_Blocks	rpc.py	/^    def get_Blocks(self, request):$/;"	m	class:RpcServer
+get_account	account.py	/^def get_account():$/;"	f
+get_account	miner.py	/^from account import get_account$/;"	i
+get_all_untransactions	miner.py	/^def get_all_untransactions():$/;"	f
+get_blockchain	rpc.py	/^    def get_blockchain(self):$/;"	m	class:RpcServer
+get_clients	rpc.py	/^def get_clients():$/;"	f
+get_code_string	lib/common.py	/^def get_code_string(base):$/;"	f
+get_nodes	node.py	/^def get_nodes():$/;"	f
+get_nodes	rpc.py	/^from node import get_nodes, add_node$/;"	i
+get_pubkey_format	lib/common.py	/^def get_pubkey_format(pub):$/;"	f
+get_transactions	rpc.py	/^    def get_transactions(self):$/;"	m	class:RpcServer
+get_unspent	transaction.py	/^    def get_unspent(cls, addr):$/;"	m	class:Vout
+ghash	block.py	/^    def ghash(self, nouce):$/;"	m	class:Block
+hash160	lib/common.py	/^def hash160(string):$/;"	f
+hashlib	account.py	/^import hashlib$/;"	i
+hashlib	block.py	/^import hashlib$/;"	i
+hashlib	database.py	/^import hashlib$/;"	i
+hashlib	lib/common.py	/^import hashlib$/;"	i
+hashlib	transaction.py	/^import hashlib$/;"	i
+hexdigest	lib/ripemd.py	/^    def hexdigest(self):$/;"	m	class:RIPEMD160
+init_node	node.py	/^def init_node():$/;"	f
+insert	database.py	/^    def insert(self, item):$/;"	m	class:BaseDB
+insert	database.py	/^    def insert(self, item):$/;"	m	class:BlockChainDB
+insert	database.py	/^    def insert(self, txs):$/;"	m	class:TransactionDB
+json	block.py	/^import json$/;"	i
+json	database.py	/^import json$/;"	i
+json	lib/common.py	/^import json$/;"	i
+json	model.py	/^    def json(self):$/;"	m	class:Model
+json	model.py	/^import json$/;"	i
+json	node.py	/^import json$/;"	i
+json	transaction.py	/^import json$/;"	i
+last	database.py	/^    def last(self):$/;"	m	class:BlockChainDB
+lib	account.py	/^import lib.common$/;"	i
+lock_sig	lib/common.py	/^def lock_sig(unlocksig, pubkey):$/;"	f
+lock_sig	miner.py	/^from lib.common import unlock_sig, lock_sig$/;"	i
+lpad	lib/common.py	/^def lpad(msg, symbol, length):$/;"	f
+make	block.py	/^    def make(self, nouce):$/;"	m	class:Block
+mine	miner.py	/^def mine():$/;"	f
+multiprocessing	node.py	/^import multiprocessing$/;"	i
+new	lib/ripemd.py	/^def new(arg=None):$/;"	f
+new_account	account.py	/^def new_account():$/;"	f
+new_block	rpc.py	/^    def new_block(self,block):$/;"	m	class:RpcServer
+new_untransaction	rpc.py	/^    def new_untransaction(self,untx):$/;"	m	class:RpcServer
+noname	rpc.py	/^        def noname(*args, **kw):$/;"	f	function:BroadCast.__getattr__
+noname	rpc.py	/^        def noname(*args, **kw):$/;"	f	function:RpcClient.__getattr__
+os	database.py	/^import os$/;"	i
+os	lib/common.py	/^import os$/;"	i
+ping	rpc.py	/^    def ping(self):$/;"	m	class:RpcServer
+pow	block.py	/^    def pow(self):$/;"	m	class:Block
+psyco	lib/ripemd.py	/^    import psyco$/;"	i
+pubkey_to_address	account.py	/^from lib.common import pubkey_to_address$/;"	i
+pubkey_to_address	lib/common.py	/^def pubkey_to_address(pubkey, magicbyte=0):$/;"	f
+random	lib/common.py	/^import random$/;"	i
+random_key	lib/common.py	/^def random_key():$/;"	f
+random_string	lib/common.py	/^def random_string(x):$/;"	f
+range	lib/ripemd.py	/^    range = xrange$/;"	v
+read	database.py	/^    def read(self):$/;"	m	class:BaseDB
+read_config	block.py	/^    def read_config(self, path1, path2 = None):$/;"	m	class:Block
+reward	miner.py	/^def reward():$/;"	f
+rm_dup	node.py	/^def rm_dup(nodes):$/;"	f
+router	rpc.py	/^    def router(self, request):$/;"	m	class:RpcServer
+rpc	node.py	/^import rpc$/;"	i
+safe_from_hex	lib/common.py	/^def safe_from_hex(s):$/;"	f
+safe_hexlify	lib/common.py	/^def safe_hexlify(a):$/;"	f
+select_outputs_greedy	transaction.py	/^def select_outputs_greedy(unspent, min_value): $/;"	f
+send_Header	rpc.py	/^    def send_Header(self, request):$/;"	m	class:RpcServer
+server	rpc.py	/^server = None$/;"	v
+set_path	database.py	/^    def set_path(self):$/;"	m	class:AccountDB
+set_path	database.py	/^    def set_path(self):$/;"	m	class:BaseDB
+set_path	database.py	/^    def set_path(self):$/;"	m	class:BlockChainDB
+set_path	database.py	/^    def set_path(self):$/;"	m	class:NodeDB
+set_path	database.py	/^    def set_path(self):$/;"	m	class:TransactionDB
+set_path	database.py	/^    def set_path(self):$/;"	m	class:UnTransactionDB
+spread	block.py	/^    def spread(Header):$/;"	m	class:Block
+start_node	node.py	/^def start_node():$/;"	f
+start_server	rpc.py	/^def start_server(ip, port=8301):$/;"	f
+struct	lib/ripemd.py	/^import struct$/;"	i
+sys	lib/ripemd.py	/^import sys$/;"	i
+time	block.py	/^import time$/;"	i
+time	lib/common.py	/^import time$/;"	i
+time	miner.py	/^import time$/;"	i
+time	transaction.py	/^import time$/;"	i
+to_dict	block.py	/^    def to_dict(self):$/;"	m	class:Block
+to_dict	model.py	/^    def to_dict(self):$/;"	m	class:Model
+to_dict	transaction.py	/^    def to_dict(self):$/;"	m	class:Transaction
+to_header	block.py	/^    def to_header(self):$/;"	m	class:Block
+transfer	transaction.py	/^    def transfer(cls, from_addr, to_addr, amount):$/;"	m	class:Transaction
+tx_hash_insert	database.py	/^    def tx_hash_insert(self, item):$/;"	m	class:BaseDB
+unblock_spread	transaction.py	/^    def unblock_spread(untx):$/;"	m	class:Transaction
+unlock_sig	lib/common.py	/^def unlock_sig(prikey, timestamp):$/;"	f
+unlock_sig	miner.py	/^from lib.common import unlock_sig, lock_sig$/;"	i
+update	lib/ripemd.py	/^    def update(self, arg):$/;"	m	class:RIPEMD160
+valid	block.py	/^    def valid(self, nouce):$/;"	m	class:Block
+write	database.py	/^    def write(self, item):$/;"	m	class:BaseDB
