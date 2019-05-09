@@ -4,7 +4,7 @@ import time
 from model import Model
 from rpc import BroadCast
 import json
-
+import re
 class Block(Model):
     def __init__(self, index, previous_hash):
         self.index = index
